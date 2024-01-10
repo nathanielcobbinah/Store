@@ -5,25 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ecommerce Website</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="bg-gradient-to-r from-blue-400 to-blue-200 bg-no-repeat min-h-screen font-sans text-gray-800 text-lg">
   <header>
     <nav class="bg-blue-500 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <a href="#" class="text-white font-bold text-lg">E_Store</a>
-
+      <div class="  flex justify-between items-center">
+        <a href="#" class="text-gray-950 font-bold text-lg">E_Store</a>
         <div class="space-x-4">
-          <a href="#" class="text-white hover:text-gray-300">Home</a>
-          <a href="#" class="text-white hover:text-gray-300">Shop</a>
-          <a href="#" class="text-white hover:text-gray-300">Products</a>
-          <a href="#" class="text-white hover:text-gray-300">Lorem</a>
-          <a href="#" class="text-white hover:text-gray-300">Contact</a>
+          <a href="#" class="text-gray-950 hover:text-gray-700">Home</a>
+          <a href="#" class="text-gray-950 hover:text-gray-700">Shop</a>
+          <a href="#" class="text-gray-950 hover:text-gray-700">Products</a>
+          <a href="#" class="text-gray-950 hover:text-gray-700">Lorem</a>
+          <a href="#" class="text-gray-950 hover:text-gray-700">Contact</a>
+        </div>      
+        <div class="flex space-x-2 text-gray-900 text-xl">
+          <i class='bx bx-search-alt-2'></i>
+          <i class='bx bx-heart' ></i>
+          <i class='bx bx-cart' ></i>
         </div>
       </div>
     </nav>
   </header>
 
+  <div class=" flex justify-around mt-6 mx-6 items-center flex-wrap">
+    <div class="w-1/2 flex flex-col gap-2">
+      <h3 class="text-red-500">SALE UP TO 30% OFF</h3>
+      <h2 class="text-2xl">Top Laptop Series</h2>
+      <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima illo reprehenderit facilis.</p>
+      <button class= "text-white py-1 px-4 rounded-3xl mx-0  bg-red-600 ">Buy Now</button>
+    </div>
+    <div>
+      <img class="w-96" src="images/laptop2-removebg-preview.png" alt="">
+    </div>
+
+    <div class="flex flex-row justify-between items-center gap-60">
+      <div class="flex flex-col items-center gap-2">
+        <img class="w-52 h-40" src="images/game-pad-removebg-preview.png" alt="">
+        <h3>Authentic Game Pad</h3>
+        <button class= "text-white py-1 px-2 text-sm rounded-3xl mx-0  bg-red-600 ">Buy Now</button>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <img class="w-52 h-40" src="images/iphone-15-pro-gray-removebg-preview.png" alt="">
+        <h3>Iphone 15 Pro Max</h3>
+        <button class= "text-white py-1 px-2 text-sm rounded-3xl mx-0  bg-red-600 ">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
   
-  
+
+ <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>
