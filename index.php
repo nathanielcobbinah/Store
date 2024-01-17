@@ -39,9 +39,6 @@
       <img class="w-60 sm:w-full h-96 sm:h-80 ml-5 md:w-96 md:h-60 xl:w-full xl:w-72 xl:h-80" src="images/laptop2-removebg-preview.png" alt="">
     </div>
   </div>
-  
-
-
   <div class="flex flex-row justify-around  items-center mt-36 md:mx-10">
     <div class="flex flex-col items-center gap-2">
       <img class="w-60 h-48 sm:w-80" src="images/game-pad-removebg-preview.png" alt="">
