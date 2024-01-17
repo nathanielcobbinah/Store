@@ -157,7 +157,60 @@
                         </div>
                     </div>
 
-                    <a href="#write-review" class="btn btn-blue-500 mt-4">Write a Review</a>
+                    <div class="flex flex-col">
+                        <a href="#write-review" class="btn btn-blue-500 mt-4">Write a Review</a>
+                        
+
+
+
+
+                        <div class="flex flex-row p-2" id="ratingIcons">
+                            <i class='bx bx-star text-red-500 ml-1' onclick="changeIcon(1)"></i>
+                            <i class='bx bx-star text-red-500 ml-1' onclick="changeIcon(2)"></i>
+                            <i class='bx bx-star text-red-500 ml-1' onclick="changeIcon(3)"></i>
+                            <i class='bx bx-star text-red-500 ml-1' onclick="changeIcon(4)"></i>
+                            <i class='bx bx-star text-red-500 ml-1' onclick="changeIcon(5)"></i>
+                        </div>
+
+                        <script>
+                            function changeIcon(selectedIndex) {
+                                const icons = document.getElementById('ratingIcons').children;
+                                // Remove 'bx-star' class and add 'bxs-star' class based on the selected index.
+                                for (let i = 0; i < icons.length; i++) {
+                                    if (i < selectedIndex) {
+                                        icons[i].classList.remove('bx-star');
+                                        icons[i].classList.add('bxs-star');
+                                    } else {
+                                        icons[i].classList.remove('bxs-star');
+                                        icons[i].classList.add('bx-star');
+                                    }
+                                }
+                            }
+                        </script>
+
+
+
+                        
+                        
+                        
+                        <div class="relative">
+                            <textarea id="reviewTextarea" placeholder="Add a review to this product..." class="p-2 text-sm text-gray-900 outline-none h-auto w-full resize-none overflow-hidden"></textarea>
+                            <i class="bx bx-send absolute w-10 right-4 bottom-4 text-gray-500"></i>
+                        </div>
+
+                        <script>
+                            const textarea = document.getElementById('reviewTextarea');
+                            textarea.addEventListener('input', function () {
+                                this.style.height = 'auto';
+                                this.style.height = (this.scrollHeight) + 'px';
+                            });
+
+                            // Trigger the input event to adjust the height initially if there is existing content.
+                            textarea.dispatchEvent(new Event('input'));
+                        </script>
+
+                    </div>
+
                 </div>
             </div>
 
@@ -173,67 +226,67 @@
     </main>
 
     <footer class="bg-blue-600 mb-0 p-5 ring-1 ring-blue-800 mx-6 sm:mx-2">
-    <div class="flex flex-row gap-3 justify-around items-center">
-      <div class="flex flex-col items-center gap-2 w-1/4">
-        <i class='bx bx-package text-5xl text-gray-700' ></i>
-        <h3 class="text-center">Free delivery</h3>
-        <p class="text-center text-sm">And free returns. See checkout for delivery dates</p>
-      </div>
-      <div class="flex flex-col items-center gap-2 w-1/4">
-        <i class='bx bx-dollar-circle text-5xl text-gray-700' ></i>
-        <h3 class="text-center">Pay monthly at 0% APR</h3>
-        <p class="text-center text-sm">Choose to chekc out with Apple Card Monthly installments</p>
-      </div>
-      <div class="flex flex-col items-center gap-2 w-1/4">
-        <i class='bx bx-pause-circle text-5xl text-gray-700'></i>
-        <h3 class="text-center">Personalize it</h3>
-        <p class="text-center text-sm">Enagage your device with your name or a personal note</p>
-      </div>
-    </div>
+        <div class="flex flex-row gap-3 justify-around items-center">
+        <div class="flex flex-col items-center gap-2 w-1/4">
+            <i class='bx bx-package text-5xl text-gray-700' ></i>
+            <h3 class="text-center">Free delivery</h3>
+            <p class="text-center text-sm">And free returns. See checkout for delivery dates</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 w-1/4">
+            <i class='bx bx-dollar-circle text-5xl text-gray-700' ></i>
+            <h3 class="text-center">Pay monthly at 0% APR</h3>
+            <p class="text-center text-sm">Choose to chekc out with Apple Card Monthly installments</p>
+        </div>
+        <div class="flex flex-col items-center gap-2 w-1/4">
+            <i class='bx bx-pause-circle text-5xl text-gray-700'></i>
+            <h3 class="text-center">Personalize it</h3>
+            <p class="text-center text-sm">Enagage your device with your name or a personal note</p>
+        </div>
+        </div>
 
-    <div class="mt-16">
-      <div class="flex flex-row justify-between items-start flex-wrap gap-3">
-        <div class="flex flex-col gap-2 text-sm">
-          <h3 class="text-gray-800 text-2xl">Contact Us</h3>
-          <div class="flex flex-col">
-            <a href="#">Drou Demo Store</a>
-            <a href="#">No. 1259 Freedom, New York</a>
-            <a href="#">United State</a>
-            <a href="#">+91-8343243425</a>
-            <a href="#">demo@exampledemo.com</a>
-          </div>
+        <div class="mt-16">
+        <div class="flex flex-row justify-between items-start flex-wrap gap-3">
+            <div class="flex flex-col gap-2 text-sm">
+            <h3 class="text-gray-800 text-2xl">Contact Us</h3>
+            <div class="flex flex-col">
+                <a href="#">Drou Demo Store</a>
+                <a href="#">No. 1259 Freedom, New York</a>
+                <a href="#">United State</a>
+                <a href="#">+91-8343243425</a>
+                <a href="#">demo@exampledemo.com</a>
+            </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm">
+            <h3 class="text-gray-800 text-2xl">Information</h3>
+            <div class="flex flex-col">
+                <a href="#">Product Support</a>
+                <a href="#">Checkout</a>
+                <a href="#">License Policy</a>
+                <a href="#">Affiliate</a>
+            </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm">
+            <h3 class="text-gray-800 text-2xl">Customer Service</h3>
+            <div class="flex flex-col">
+                <a href="#">Help Center</a>
+                <a href="#">Redeem Voucher</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Policies & Rules</a>
+            </div>
+            </div>
         </div>
-        <div class="flex flex-col gap-2 text-sm">
-          <h3 class="text-gray-800 text-2xl">Information</h3>
-          <div class="flex flex-col">
-            <a href="#">Product Support</a>
-            <a href="#">Checkout</a>
-            <a href="#">License Policy</a>
-            <a href="#">Affiliate</a>
-          </div>
         </div>
-        <div class="flex flex-col gap-2 text-sm">
-          <h3 class="text-gray-800 text-2xl">Customer Service</h3>
-          <div class="flex flex-col">
-            <a href="#">Help Center</a>
-            <a href="#">Redeem Voucher</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Policies & Rules</a>
-          </div>
+        
+        <div class="flex flex-row justify-between mt-12">
+        <div>
+            <p class="text-sm">Copyright©DeEscades | Built with Lorem by DeEscades.</p>
         </div>
-      </div>
-    </div>
-    
-    <div class="flex flex-row justify-between mt-12">
-      <div>
-        <p class="text-sm">Copyright©DeEscades | Built with Lorem by DeEscades.</p>
-      </div>
-      <div>
-        <img src="images/payment-method.webp" alt="">
-      </div>
-    </div>
+        <div>
+            <img src="images/payment-method.webp" alt="">
+        </div>
+        </div>
 
-  </footer>
+    </footer>
 
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
