@@ -8,25 +8,49 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="bg-gradient-to-r from-blue-600 to-blue-400  bg-no-repeat min-h-screen font-sans text-gray-800 xs:text-red-500 text-lg">
-  <header>
-    <nav class="bg-blue-700 p-4">
-      <div class="  flex justify-between items-center">
-        <a href="#" class="text-gray-950 font-bold text-lg">E_Store</a>
-        <div class="space-x-4 text-md">
-          <a href="#" class="text-gray-950 hover:text-gray-700">Home</a>
-          <a href="#" class="text-gray-950 hover:text-gray-700">Shop</a>
-          <a href="#" class="text-gray-950 hover:text-gray-700">Products</a>
-          <a href="#" class="text-gray-950 hover:text-gray-700">Lorem</a>
-          <a href="#" class="text-gray-950 hover:text-gray-700">Contact</a>
-        </div>      
-        <div class="flex space-x-2 text-gray-900 text-xl">
-          <i class='bx bx-search-alt-2 text-red-500'></i>
-          <i class='bx bx-heart text-red-500' ></i>
-          <i class='bx bx-cart text-red-500' ></i>
+
+      <header>
+        <nav class="bg-blue-700 p-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-gray-950 font-bold text-lg">E_Store</a>
+                <!-- Responsive Menu Button -->
+                <div class="lg:hidden">
+                    <button id="menu-toggle" class="text-gray-900 hover:text-gray-700 focus:outline-none">
+                        <i class='bx bx-menu text-2xl'></i>
+                    </button>
+                </div>
+                <div class="hidden lg:flex space-x-4 text-md">
+                    <a href="index.php" class="text-gray-950 hover:text-gray-700">Home</a>
+                    <a href="#" class="text-gray-950 hover:text-gray-700">Shop</a>
+                    <a href="#" class="text-gray-950 hover:text-gray-700">Products</a>
+                    <a href="#" class="text-gray-950 hover:text-gray-700">Lorem</a>
+                    <a href="#" class="text-gray-950 hover:text-gray-700">Contact</a>
+                </div>
+                <div class="flex space-x-2 text-gray-900 text-xl">
+                    <i class='bx bx-search-alt-2 text-red-500'></i>
+                    <i class='bx bx-heart text-red-500'></i>
+                    <i class='bx bx-cart text-red-500'></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Responsive Menu -->
+        <div id="responsive-menu" class="hidden lg:hidden bg-blue-700 p-4">
+            <a href="index.php" class="text-gray-950 block py-2">Home</a>
+            <a href="#" class="text-gray-950 block py-2">Shop</a>
+            <a href="#" class="text-gray-950 block py-2">Products</a>
+            <a href="#" class="text-gray-950 block py-2">Lorem</a>
+            <a href="#" class="text-gray-950 block py-2">Contact</a>
         </div>
-      </div>
-    </nav>
-  </header>
+    </header>
+
+    <script>
+        // JavaScript to toggle the responsive menu
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var menu = document.getElementById('responsive-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
 
   <div class=" flex flex-row justify-around  mt-5 sm:-mt-5 xl:mt-9 xl:mx-7 sm:mx-2 items-center flex-wrap sm:flex-col-reverse md:flex-row">
     <div class="w-1/3 sm:w-full flex flex-col gap-3 sm:gap-2 md:gap-4 sm:items-center  md:w-2/5 xl:w-1/2 md:items-start">
