@@ -110,7 +110,11 @@ function test_input($data) {
     <title>Add Product - E_Store</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-r from-blue-600 to-blue-400  bg-no-repeat min-h-screen font-sans text-gray-800 xs:text-red-500 text-lg">
+
+<?php 
+ include 'header.php';
+?>
 
     <div class="container mx-auto mt-8 flex flex-row justify-between p-5 ring-1 ring-blue-500 rounded-xl">
         
@@ -128,17 +132,17 @@ function test_input($data) {
             <div class="mb-4">
                 <span class="text-red-600 py-2">* <?php echo $nameErr; ?></span>
                 <label for="name" class="block text-gray-600">Product Name</label>
-                <input type="text" id="name" name="name" class="border rounded-md px-4 py-2 w-full outline-none">
+                <input type="text" id="name" name="name" class="border rounded-md px-4 py-2 w-full outline-none" placeholder="Add product name...">
             </div>
             <div class="mb-4">
                 <span class="text-red-600 py-2">* <?php echo $descriptionErr; ?></span>
                 <label for="description" class="block text-gray-600">Description</label>
-                <textarea id="description" name="description" class="border rounded-md px-4 py-2 w-full outline-none"></textarea>
+                <textarea id="description" name="description" class="border rounded-md px-4 py-2 w-full outline-none" placeholder="Add product description..."></textarea>
             </div>
             <div class="mb-4">
                 <span class="text-red-600 py-2">* <?php echo $priceErr; ?></span>
                 <label for="price" class="block text-gray-600">Price</label>
-                <input type="text" id="price" name="price" class="border rounded-md px-4 py-2 w-full outline-none">
+                <input type="text" id="price" name="price" class="border rounded-md px-4 py-2 w-full outline-none" placeholder="Add product price...">
             </div>
 
             <!-- Inside your form -->
@@ -170,12 +174,12 @@ function test_input($data) {
                 <label for="features" class="block text-gray-600">Features</label>
                 <!-- Use square brackets in the name to handle an array of features -->
                 <div id="features-container">
-                    <textarea name="features[]" class="border rounded-md px-4 py-2 w-full outline-none"></textarea>
+                    <textarea name="features[]" class="border rounded-md px-4 py-2 w-full outline-none" placeholder="Add product features..."></textarea>
                 </div>
                 <button type="button" onclick="addFeature()">Add Another Feature</button>
             </div>
             
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Product</button>
+            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md">Add Product</button>
         </form>
 
         <!-- <br><br><br> -->
@@ -204,19 +208,20 @@ function test_input($data) {
             ?>
                 
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <h1 class="text-3xl font-semibold mb-4">Add Category</h1>
                     <input type="hidden" name="form_type" value="add_category">
                     <div class="mb-4">
                         <span class="text-red-600 py-6">* <?php echo $categoryErr; ?></span>
                         <label for="category_name" class="text-gray-600">Category Name</label>
-                        <input type="text" name="category_name" class="border rounded-md px-4 py-2 w-full outline-none" id="">
+                        <input type="text" name="category_name" class="border rounded-md px-4 py-2 w-full outline-none" id="" placeholder="Create categorries...">
                     </div>
                 
                     <!-- Add a message div to display the success message -->
-                    <div id="success-message" class="mb-4 text-green-500"></div>
+                    <div id="success-message" class="mb-4 text-green-600 italic"></div>
 
                 <!-- ... your other form fields ... -->
 
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Product</button>
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md">Add Product</button>
                 </form>
 
                 <script>
