@@ -14,6 +14,7 @@
             <a href="#" class="font-bold text-lg">E_Store CMS</a>
             <div class="space-x-4">
                 <a href="dashboard.php" class="hover:text-gray-300">Dashboard</a>
+                <a href="add_product.php" class="hover:text-gray-300">Create Product</a>
                 <a href="products.php" class="hover:text-gray-300">Products</a>
                 <a href="categories.php" class="hover:text-gray-300">Categories</a>
                 <a href="users.php" class="hover:text-gray-300">Users</a>

@@ -1,3 +1,5 @@
+<?php include 'db.php';  session_start()?>
+
     <!-- Category Header -->
     <header> 
         <nav class="bg-blue-700 p-4">
@@ -10,16 +12,23 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex space-x-4 text-md">
-                    <a href="index.php" class="text-gray-950 hover:text-gray-700">Home</a>
-                    <a href="#" class="text-gray-950 hover:text-gray-700">Shop</a>
-                    <a href="#" class="text-gray-950 hover:text-gray-700">Products</a>
-                    <a href="#" class="text-gray-950 hover:text-gray-700">Lorem</a>
-                    <a href="#" class="text-gray-950 hover:text-gray-700">Contact</a>
+                    <a href="index.php" class="text-gray-950 block py-2">Home</a>
+                    <a href="cms.php" class="text-gray-950 block py-2">CMS</a>
+                    <a href="" class="text-gray-950 block py-2">Products</a>
+                    <a href="categories.php" class="text-gray-950 block py-2">Categories</a>
+                    <a href="#" class="text-gray-950 block py-2">Contact</a>
                 </div>
-                <div class="flex space-x-2 text-gray-900 text-xl">
-                    <i class='bx bx-search-alt-2 text-red-500'></i>
-                    <i class='bx bx-heart text-red-500'></i>
-                    <i class='bx bx-cart text-red-500'></i>
+                <div>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <p><?= $_SESSION['username'] ?>!</p>
+                    <?php else: ?>
+                        <p><a href="login.php">login</a>/<a href="signup.php">sign up</a>.</p>
+                    <?php endif; ?>
+                </div>
+                <div class="flex space-x-2 text-gray-900">
+                    <i class='bx bx-search-alt-2 text-black text-2xl'></i>
+                    <i class='bx bx-heart text-black text-2xl'></i>
+                    <i class='bx bx-cart text-black text-2xl'>2</i>
                 </div>
             </div>
         </nav>
@@ -27,9 +36,9 @@
         <!-- Responsive Menu -->
         <div id="responsive-menu" class="hidden lg:hidden bg-blue-700 p-4">
             <a href="index.php" class="text-gray-950 block py-2">Home</a>
-            <a href="#" class="text-gray-950 block py-2">Shop</a>
-            <a href="#" class="text-gray-950 block py-2">Products</a>
-            <a href="#" class="text-gray-950 block py-2">Lorem</a>
+            <a href="cms.php" class="text-gray-950 block py-2">CMS</a>
+            <a href="" class="text-gray-950 block py-2">Products</a>
+            <a href="categories.php" class="text-gray-950 block py-2">Categories</a>
             <a href="#" class="text-gray-950 block py-2">Contact</a>
         </div>
       </header>
