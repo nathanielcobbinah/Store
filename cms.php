@@ -30,15 +30,51 @@
         <!-- Cards for Statistics -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Card 1: Total Products -->
+
+            <?php 
+            
+            include 'db.php';
+
+            // Execute the SQL query to get the total count
+            $query = "SELECT COUNT(*) AS total FROM products";
+            $result = $conn->query($query);
+
+            // Check if the query was successful
+            if ($result) {
+                // Fetch the result
+                $row = $result->fetch_assoc();
+                
+                // Get the total count from the associative array
+                $totalProducts = $row['total'];
+            } else {
+                // Handle the error if the query fails
+                $totalProducts = 0; // Default value
+            }
+            ?>
+            
+
             <div class="bg-white p-4 rounded-md shadow-md">
                 <h2 class="text-xl font-semibold mb-2">Total Products</h2>
-                <p class="text-3xl font-bold text-blue-500">256</p>
+                <p class="text-3xl font-bold text-blue-500"><?php echo $totalProducts; ?></p>
             </div>
+
+            <?php 
+                $query = "SELECT COUNT(*) AS total FROM categories";
+                $result = $conn->query($query);
+
+                if ($result) {
+                    $row = $result->fetch_assoc();
+
+                    $totalCategories = $row['total'];
+                } else {
+                    $totalCategories = 0;
+                }
+            ?>
 
             <!-- Card 2: Total Categories -->
             <div class="bg-white p-4 rounded-md shadow-md">
                 <h2 class="text-xl font-semibold mb-2">Total Categories</h2>
-                <p class="text-3xl font-bold text-blue-500">32</p>
+                <p class="text-3xl font-bold text-blue-500"><?php echo $totalCategories; ?></p>
             </div>
 
             <!-- Card 3: Total Users -->

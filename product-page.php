@@ -1,26 +1,35 @@
+<?php 
+
+include 'db.php';
+
+if (isset($_GET['id'])) {
+    $productId = $_GET['id'];
+
+    $result = $conn->query("SELECT * FROM products WHERE id = $productId");
+
+    if ($result && $result->num_rows > 0) {
+        $product = $result->fetch_assoc();
+    } else {
+        die("Product not found");
+    }
+} else {
+    die("Product ID not provided");
+}
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acme Laptop Pro - The Ultimate Productivity Machine</title>
+<title><?php echo $product['name']; ?></title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="bg-gradient-to-r from-blue-600 to-blue-400  bg-no-repeat min-h-screen font-sans text-gray-800 xs:text-red-500 text-lg">
-
- 
-
-
-
-
-
-
-
-
-
-
-
 
     <header>
         <nav class="bg-blue-700 p-4">
@@ -65,21 +74,10 @@
         });
     </script>
 
-
-
-        
-
-
-
-
-
-
-
-
     <main class="container mx-auto sm:mx-0 px-4 sm:px-0 mt-6 sm:mt-1">
         <div class="flex flex-row sm:flex-col lg:flex-row justify-between gap-4 p-4 bg-gradient-to-r from-blue-700 to-blue-400 rounded-lg">
             <div class="rounded-lg overflow-hidden w-2/5 sm:w-full lg:w-2/5">
-                <img src="images/laptop2-removebg-preview.png" alt="Acme Laptop Pro" class="w-full h-64 flex justify-center items-center">
+                <img src="<?php echo $product['thumbnail_url']; ?>" alt="<?php echo $product['name'];?>" class="w-full h-64 flex justify-center items-center">
                 <div class="flex flex-row items-center gap-2 ring-1 ring-blue-400 p-0.5 mt-8 sm:px-6 lg:px-2">
                     <img src="images/laptop2-removebg-preview.png" alt="" class="w-32 h-24">
                     <img src="images/laptop2-removebg-preview.png" alt="" class="w-32 h-24">
@@ -146,21 +144,30 @@
             </div>
 
             <div class="p-4 rounded-lg shadow-md w-1/2 sm:w-full lg:w-1/2">
-                <h1 class="text-2xl font-bold mb-2">Acme Laptop Pro</h1>
-                <p class="mb-4">The ultimate productivity machine, designed for power users and creative professionals.</p>
+                <h1 class="text-2xl font-bold mb-2"><?php echo $product['name']; ?></h1>
+                <p class="mb-4"><?php echo $product['description']; ?></p>
                 <h2 class="text-xl font-semibold mb-2">Key Features</h2>
+
                 <ul class="list-disc pl-6 mb-4">
-                    <li>15.6-inch Retina display with stunning visuals</li>
-                    <li>Latest Intel Core i7 processor for blazing-fast performance</li>
-                    <li>16GB of RAM to handle demanding tasks with ease</li>
-                    <li>512GB SSD for lightning-fast storage</li>
-                    <li>All-day battery life to keep you productive on the go</li>
-                </ul>
+                <?php
+                // Assuming your features are stored in the 'features' table
+                $featuresResult = $conn->query("SELECT features FROM features WHERE product_id = $productId");
+
+                if ($featuresResult && $featuresResult->num_rows > 0) {
+                    // Fetch features from the result set
+                    while ($featureRow = $featuresResult->fetch_assoc()) {
+                        echo "<li>{$featureRow['features']}</li>";
+                    }
+                } else {
+                    echo "<li>No key features available.</li>";
+                }
+                ?>
+            </ul>
 
             <div class="flex flex-row items-center justify-between mr-16">
                 <div>
                     <h2 class="text-xl font-semibold mb-2">Price</h2>
-                    <p class="text-lg">$1,999.99</p>
+                    <p class="text-lg">$<?php echo $product['price']; ?></p>
                 </div>
                 <div>
                     <div class="p-4 rounded-lg">
@@ -235,11 +242,6 @@
                                 }
                             }
                         </script>
-
-
-
-                        
-                        
                         
                         <div class="relative">
                             <textarea id="reviewTextarea" placeholder="Add a review to this product..." class="p-2 text-sm text-gray-900 outline-none h-auto w-full resize-none overflow-hidden"></textarea>
